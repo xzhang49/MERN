@@ -3,25 +3,26 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
 
-const FoodModel = require("./models/Food");
+const ContactModel = require("./models/Contact");
 
 app.use(express.json());
 app.use(cors());
 
 mongoose.connect(
-    "mongodb+srv://xzhang:Email!1978@crud.gpta1.mongodb.net/food?retryWrites=true&w=majority", 
+    "mongodb://localhost:27017/contact", 
     {
         useNewUrlParser: true,
     }
 );
 
 app.post("/insert", async (req, res) => {
-    const foodName = req.body.foodName;
-    const days = req.body.days;
-    const food = new FoodModel({ foodName: foodName, daysSinceIAte: days });
+    const name = req.body.name;
+    const email = req.body.email;
+    const phone = req.body.phone;
+    const contact = new ContactModel({ name: name, email: email, phone: phone });
 
     try {
-        await food.save();
+        await contact.save();
         res.send("inserted data");
     } catch(err) {
         console.log(err);
@@ -29,7 +30,7 @@ app.post("/insert", async (req, res) => {
 });
 
 app.get("/read", async (req, res) => {
-    FoodModel.find({}, (err, result) => {
+    ContactModel.find({}, (err, result) => {
         if(err) {
             res.send(err);
         }
@@ -39,13 +40,17 @@ app.get("/read", async (req, res) => {
 });
 
 app.put("/update", async (req, res) => {
-    const newFoodName = req.body.newFoodName;
+    const newName = req.body.newName;
+    const newEmail = req.body.newEmail;
+    const newPhone = req.body.newPhone;
     const id = req.body.id;
 
     try {
-        await FoodModel.findById(id, (err, updatedFood) => {
-            updatedFood.foodName = newFoodName;
-            updatedFood.save();
+        await ContactModel.findById(id, (err, updatedContact) => {
+            updatedContact.name = newName;
+            updatedContact.email = newEmail;
+            updatedContact.phone = newPhone;
+            updatedContact.save();
             res.send("update");
         });
     } catch(err) {
@@ -56,7 +61,7 @@ app.put("/update", async (req, res) => {
 app.delete("/delete/:id", async (req, res) => {
     const id = req.params.id;
     
-    await FoodModel.findByIdAndRemove(id).exec();
+    await ContactModel.findByIdAndRemove(id).exec();
     res.send("deleted");
 
 });
