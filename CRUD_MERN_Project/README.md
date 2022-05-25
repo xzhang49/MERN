@@ -1,6 +1,6 @@
 # Getting Started with Create MERN App
 
-This project was contact card application.
+This project was a CRUD application using mongodb, expressJS, React, NodeJS and Restful Api. 
 
 ## Available Scripts
 
@@ -26,4 +26,4 @@ Server Side:
 ### `npm run devStart`
 
 Runs the app in the development mode.\
-Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
+Open [http://localhost:3001/read](http://localhost:3001/read) to view it in your browser.
