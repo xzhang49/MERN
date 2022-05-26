@@ -23,7 +23,7 @@ Server Side:
 
 ### `npm install`
 
-### `npm run start`
+### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:8000/contact](http://localhost:8000/contact) to view it in your browser.
