@@ -15,7 +15,7 @@ Client Side:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3000/register](http://localhost:3000/register) to view it in your browser.
 
 Server Side:
 
@@ -26,4 +26,4 @@ Server Side:
 ### `npm run dev`
 
 Runs the app in the development mode.\
-Open [http://localhost:5000/register](http://localhost:5000/register) to view it in your browser.
+Open [http://localhost:5000/api/register](http://localhost:5000/api/register) to view it in your browser.
